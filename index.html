@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Detection</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body> 
+
+  <div id="main"> <!-- A <canvas> to capture images from the video feed. -->
+    <div id="selfieSection" style="position: relative;">
+        <video id="camera" width="320" height="240" autoplay playsinline></video>  <!-- element displaying the live camera feed. -->
+        <canvas id="canvas" width="320" height="240" style="display: none;"></canvas>
+        <canvas id="faceMeshCanvas" width="320" height="240" style="position: absolute; top: 0; left: 0; pointer-events: none;"></canvas> 
+
+        <button id="startCameraBtn">Start Camera</button>
+        <button id="captureSelfieBtn" style="display: none;">Capture Selfie</button>
+        <p id="selfieStatus"></p>
+    </div> 
+
+    <!-- Upload Section (Initially Hidden) -->
+    <div id="uploadSection" style="display: none;">
+        <div class="upload-box">
+            <div>Upload Image 1</div> 
+            <input type="file" id="imageUpload1" accept="image/*">
+            <button class="btn" id="Btn1">Upload img</button>
+            <p class="fileName" id="fileName1"></p>
+            <div class="image-container">
+                <img id="previewImage1" style="display: none;">
+            </div>
+        </div> 
+
+        <div class="upload-box">
+            <div>Upload Image 2</div> 
+            <input type="file" id="imageUpload2" accept="image/*">
+            <button class="btn" id="Btn2">Upload img</button>
+            <p class="fileName" id="fileName2"></p>
+            <div class="image-container">
+                <img id="previewImage2" style="display: none;">
+            </div>
+        </div> 
+        <button class="btn" id="compareBtn">Compare Faces</button>
+    </div>
+
+    <div id="result"></div> 
+</div>
+
+<!-- Mediapipe Library for AI Face Detection -->
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+
+
+<script src="script.js"></script> <!-- Your Main JavaScript File -->
+</body>
+</html>
